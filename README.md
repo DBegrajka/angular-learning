@@ -12,4 +12,4 @@ Add to git
 
 # git commit -m "first web file"
 
-#
+# git push
