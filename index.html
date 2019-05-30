@@ -1,10 +1,23 @@
  <!DOCTYPE html>
- <html lang="en" dir="ltr">
+ <html ng-app="myFirstApp" lang="en" dir="ltr">
    <head>
      <meta charset="utf-8">
+     <script src="angular.min.js"></script>
+     <script src="app.js"></script>
      <title>Hello Deepak</title>
    </head>
    <body>
-     <h1>Welcome to your new website and new changes</h1>
+     <h1>My First Angu;ar Js APP</h1>
+     <div ng-controller="MyFirstController">
+       <input type="text" ng-model="name">
+       Inside my name is {{name}}
+       {{sayHello()}}
+       <div>
+         <button type="button" name="button" ng-click="feedYakov()">Feed Yakov</button>
+         <br>
+         <img ng-src="images/yaakov_{{state}}.png">
+        </div>
+
+     </div>
    </body>
  </html>

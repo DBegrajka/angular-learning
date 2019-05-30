@@ -19,3 +19,5 @@ when smaller pieces of functionality are strongly related to each other within s
 
 #Loose Coupling
 least possible dependency of one component on another component, for ex: If we change how credit card processing is done, shopping cart code won’t change
+
+#Model-View-ViewModel
