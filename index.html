@@ -1,23 +1,64 @@
- <!DOCTYPE html>
- <html ng-app="myFirstApp" lang="en" dir="ltr">
-   <head>
-     <meta charset="utf-8">
-     <script src="angular.min.js"></script>
-     <script src="app.js"></script>
-     <title>Hello Deepak</title>
-   </head>
-   <body>
-     <h1>My First Angu;ar Js APP</h1>
-     <div ng-controller="MyFirstController">
-       <input type="text" ng-model="name">
-       Inside my name is {{name}}
-       {{sayHello()}}
-       <div>
-         <button type="button" name="button" ng-click="feedYakov()">Feed Yakov</button>
-         <br>
-         <img ng-src="images/yaakov_{{state}}.png">
-        </div>
+<!DOCTYPE html>
+<html ng-app='MsgApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style> body { font-size: 1.2em; }</style>
+    <title>Filters</title>
+  </head>
+  <body>
+    <h1>Filters</h1>
+    <div ng-controller='MsgController'>
+      {{name}} has a message for you: <br>
+      org: {{sayMessage()}}
+      <br>
+      new: {{sayLovesMessage()}}
+      <br>
+      Truth: {{sayLovesMessage() | truth : "healthy" : "cookie" }}
+      <br>
+      BIG Truth: {{sayLovesMessage() | truth : "healthy" : "cookie" | uppercase }}
+      <div>
+        <button ng-click="feedYaakov()">Feed Yaakov</button>
+        Cost: {{cookieCost | currency : "#blah" : 4}}
 
-     </div>
-   </body>
- </html>
+        <br>
+        <img ng-src="images/yaakov_{{stateOfBeing}}.png">
+        <br>
+        <br>
+          <button ng-click="showNumberOfWatchers()">Log # of Watchers</button><br>
+          <input type="text" ng-model='name'>
+            <button ng-click="countOnce()">Up Once Counter</button><br>
+              <button ng-click="upCounter()">Up Counter</button>
+
+      </div>
+      <div>
+        Once Counter: {{onceCounter}} <br>
+        Regular Counter: {{counter}}
+      </div>
+      <h3>Shopping List:</h3>
+      <input type="text" ng-model="search">
+            <ul>
+              <li ng-repeat="item in shoppingList1 | filter : search">{{ item }}</li>
+            </ul>
+
+    <!-- Shopping List #2: -->
+     <!-- <ul>
+        <li ng-repeat="item in shoppingList2">Buy {{item.quantity}} of {{item.name}}(s)</li>
+      </ul> -->
+
+      <!-- Shopping List #3: -->
+      <input type="text" ng-model="shoppingList2[0].quantity">
+       <ul>
+        <li ng-repeat="item in shoppingList2">{{$index + 1}}. Buy {{item.quantity}} of {{item.name}}(s)</li>
+      </ul>
+       <input type="text" ng-model="newItemName" placeholder="item name">
+      <input type="text" ng-model="newItemQuantity" placeholder="item quantity">
+      <button ng-click="addToList()">Add To List</button>
+
+      <div>
+
+      </div>
+    </div>
+  </body>
+</html>
