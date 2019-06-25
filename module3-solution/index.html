@@ -9,19 +9,19 @@
     <script src="app.js"></script>
   </head>
 <body ng-app="NarrowItDownApp">
-   <div class="container" ng-controller='NarrowItDownController as menu'>
+   <div class="container" ng-controller='NarrowItDownController as NarrowItDownController'>
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control" ng-model="menu.searchTerm">
+      <input type="text" placeholder="search term" class="form-control" ng-model="NarrowItDownController.searchTerm">
     </div>
     <div class="form-group">
-      <button class="btn btn-primary" ng-click="menu.narrowItDown(menu.searchTerm);">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="NarrowItDownController.narrowItDown(NarrowItDownController.searchTerm);">Narrow It Down For Me!</button>
     </div>
 
 	<found-items
-        items="menu.found"
-		on-remove="menu.removeItem(index)">
+        items="NarrowItDownController.found"
+		on-remove="NarrowItDownController.removeItem(index)">
 	</found-items>
   </div>
 
