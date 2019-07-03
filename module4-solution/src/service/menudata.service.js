@@ -9,7 +9,7 @@ MenuDataService.$inject = ['$http','ApiBasePath'];
 function MenuDataService($http, ApiBasePath) {
   var service = this;
 
-
+console.log(service);
   service.getAllCategories = function () {
 	var promise = $http({
 		method: "GET",
