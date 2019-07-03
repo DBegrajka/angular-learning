@@ -1,3 +1,4 @@
+// using Api based path as constant here to be used in different JS file
 (function () {
 'use strict';
 

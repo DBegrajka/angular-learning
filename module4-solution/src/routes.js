@@ -1,13 +1,11 @@
+//provide route to navigate to template
 (function () {
-
 angular.module('MenuApp',['ui.router','Data'])
 .config(RoutesConfig);
 
 RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RoutesConfig($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
-
-
   $stateProvider
     .state('home', {
       url: '/',
@@ -17,9 +15,9 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 	.state('categoriesState', {
       url: '/categories',
       templateUrl: 'src/templates/categories.template.html',
-	  controller: 'CategoriesController as categoriesCtrl',
-	  resolve: {
-		items: ['MenuDataService', function (MenuDataService) {
+	    controller: 'CategoriesController as categoriesCtrl',
+	    resolve: {
+		  items: ['MenuDataService', function (MenuDataService) {
 			var items = MenuDataService.getAllCategories();
 			return items;
 
@@ -29,7 +27,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 
 	.state('itemsState', {
 	  url: '/items/{categoryShortName}',
-      templateUrl: 'src/templates/items.template.html',
+    templateUrl: 'src/templates/items.template.html',
 	  controller: 'ItemsController as itemsCtrl',
 	  resolve: {
 		items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
@@ -39,6 +37,4 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 	  }
     });
 }
-
-
 })();
