@@ -1,0 +1,16 @@
+<h2 class="text-center">User preferences</h2>
+
+<div class="container">
+   <div ng-if="myInfoCtrl.preferences">
+       <user-info
+           user = "myInfoCtrl.preferences.user">
+       </user-info>
+       <menu-item 
+          menu-item= "myInfoCtrl.preferences.menuItem">
+       </menu-item> 
+   </div>
+    <div ng-if="!myInfoCtrl.preferences" class="signup-error text-center">
+        <p>Not Signed Up Yet.<a ui-sref="public.signup">Sign Up Now!</a>
+        </p>
+    </div>   
+</div>

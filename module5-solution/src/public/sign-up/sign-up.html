@@ -1,0 +1,51 @@
+<div class="signup">
+  <h1 class="text-center">Signup</h1>
+  <form name='signupForm' novalidate>
+      <div>
+        <div class="form-group">
+          <label>Firstname</label>
+          <input class="form-control" name="firstname" type="text" ng-model="signUpCtrl.user.firstname" placeholder="Firstname" required autofocus>
+          <span class="signup-error text-center"
+            ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched">
+            Firstname must be required
+          </span>
+        </div>
+        <div class="form-group">
+          <label>Lastname</label>
+          <input class="form-control" name="lastname" type="text" ng-model="signUpCtrl.user.lastname" placeholder="Lastname" required>
+          <span class="signup-error text-center"
+            ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">
+            Lastname must be required
+          </span>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" name="email" type="email" ng-model="signUpCtrl.user.email" placeholder="Email" required>
+          <span class="signup-error text-center"
+                ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+        </div>
+        <div class="form-group">
+          <label>Phone number</label>
+          <input class="form-control" name="phone" type="tel" ng-model="signUpCtrl.user.phone" placeholder="Phone ###-###-####">
+          <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+        </div>
+        <div class="form-group">
+          <label>Favorite dish (Short Name)</label>
+          <input class="form-control" type="text" ng-model="signUpCtrl.user.favorite" placeholder="e.g: A1">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" ng-disabled="signupForm.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
+        </div>
+      </div>
+      <div ng-if="signUpCtrl.successMsg" class="signup-success text-center">
+        {{signUpCtrl.successMsg}}
+      </div>
+      <div ng-if="signUpCtrl.error" class="signup-error text-center">
+        {{signUpCtrl.error}}
+      </div>
+  </form>
+</div>
